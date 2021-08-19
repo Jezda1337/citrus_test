@@ -1,0 +1,44 @@
+@use '../global';
+
+.users {
+  background-color: global.$main;
+  max-height: 38.3rem;
+  height: 100%;
+  padding: 3rem 1rem;
+  text-transform: uppercase;
+
+  @include global.breakpoint(tablet) {
+    max-height: 45rem;
+  }
+
+  @include global.breakpoint(desktop) {
+    max-height: 50.82rem;
+  }
+
+  &__title {
+    color: global.$darkGray;
+    font-size: 2.5rem;
+    font-weight: 500;
+
+    @include global.breakpoint(tablet) {
+      font-size: 2.9rem;
+    }
+    @include global.breakpoint(desktop) {
+      font-size: 3.4rem;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin-top: 1.5rem;
+
+    @include global.breakpoint(tablet) {
+      gap: 2.5rem 2rem;
+    }
+  }
+}

@@ -1,1 +1,17 @@
 @use 'global';
+@use 'components';
+
+body {
+  background-color: global.$coral;
+}
+
+.wrapper {
+  max-width: 30rem;
+  margin: 0 auto;
+  @include global.breakpoint(tablet) {
+    max-width: 64rem;
+  }
+  @include global.breakpoint(desktop) {
+    max-width: 128rem;
+  }
+}

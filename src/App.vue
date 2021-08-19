@@ -1,11 +1,13 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view/>
+  <Users />
+  <Todos />
 </template>
 
+<script setup>
+import Users from './views/Users.vue';
+import Todos from './views/Todos.vue';
+</script>
+
 <style lang="scss">
-@import './sass/styles.scss';
+// @import './sass/styles.scss'
 </style>
