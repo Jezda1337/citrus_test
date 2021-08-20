@@ -1,0 +1,128 @@
+@use '../global';
+.todos {
+  background-color: global.$lightGray;
+
+  &__header {
+    @include global.breakpoint(desktop) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 3rem;
+    }
+  }
+
+  &__filters {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__filter {
+    font-size: 1.1rem;
+    font-weight: 700;
+    max-width: 9.5rem;
+    max-height: 3.5rem;
+    height: 100%;
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 3rem;
+    margin: 1.5rem 0;
+    border: 1px solid #c7c8ca;
+
+    @include global.breakpoint(desktop) {
+      font-size: 1.8rem;
+      min-width: 20rem;
+      min-height: 5rem;
+      border: 2px solid #c7c8ca;
+    }
+
+    &:nth-child(2) {
+      margin: 1.5rem 0.8rem;
+
+      @include global.breakpoint(desktop) {
+        margin: 1.5rem 3rem;
+      }
+    }
+  }
+  .active {
+    background-color: global.$main;
+    border: 1px solid global.$main;
+    @include global.breakpoint(desktop) {
+      border: 2px solid global.$main;
+    }
+  }
+
+  &__user-name {
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: global.$darkGray;
+
+    @include global.breakpoint(desktop) {
+      font-size: 3.4rem;
+    }
+  }
+
+  &__item {
+    list-style: none;
+  }
+
+  &__label {
+    background-color: global.$darkerGray;
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    margin-bottom: 0.6rem;
+    border-radius: 0.6rem;
+    cursor: pointer;
+    @include global.breakpoint(desktop) {
+      padding: 1.6rem;
+      margin-bottom: 1rem;
+      border-radius: 1rem;
+    }
+  }
+
+  &__check {
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: 1px solid global.$gray;
+    padding: 1.2rem;
+    border-radius: 0.4rem;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+
+    @include global.breakpoint(desktop) {
+      width: 4.4rem;
+      height: 4.4rem;
+    }
+
+    &:checked::after {
+      content: "\2714";
+      font-size: 2rem;
+      position: absolute;
+      top: -2px;
+      left: 4px;
+      color: global.$iceBlue;
+
+      @include global.breakpoint(desktop) {
+        left: 1rem;
+        font-size: 3rem;
+      }
+    }
+  }
+
+  &__todo-title {
+    margin-left: 1.5rem;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: global.$darkGray;
+    &::first-letter {
+      text-transform: uppercase;
+    }
+
+    @include global.breakpoint(desktop) {
+      font-size: 1.6rem;
+      font-weight: 500;
+    }
+  }
+}

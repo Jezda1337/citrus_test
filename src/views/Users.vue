@@ -5,7 +5,7 @@
       Pick a user
     </h2>
     <ul class="users__list">
-      <User className="user-btn" :users="userss"/>
+      <User className="user-btn" :users="users"/>
     </ul>
     </div>
   </section>
@@ -16,12 +16,12 @@ import User from '../components/User.vue'
 import {ref} from 'vue';
 const url = 'https://jsonplaceholder.typicode.com/users';
 
-let userss = ref();
+let users = ref();
 const getUsers = async () => {
   try {
     const response = await fetch(url);
     const data = await response.json();
-    userss.value = await data;
+    users.value = await data;
   } catch(error) {
     console.warn(error)
   }

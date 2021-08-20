@@ -6,6 +6,7 @@ body {
 }
 
 .wrapper {
+  padding: 3rem 0;
   max-width: 30rem;
   margin: 0 auto;
   @include global.breakpoint(tablet) {
@@ -13,5 +14,10 @@ body {
   }
   @include global.breakpoint(desktop) {
     max-width: 128rem;
+    padding: 8rem 0;
   }
+}
+
+.done {
+  text-decoration: line-through;
 }

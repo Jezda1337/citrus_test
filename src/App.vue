@@ -6,8 +6,5 @@
 <script setup>
 import Users from './views/Users.vue';
 import Todos from './views/Todos.vue';
-</script>
 
-<style lang="scss">
-// @import './sass/styles.scss'
-</style>
+</script>

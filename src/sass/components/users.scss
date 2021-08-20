@@ -4,8 +4,8 @@
   background-color: global.$main;
   max-height: 38.3rem;
   height: 100%;
-  padding: 3rem 1rem;
   text-transform: uppercase;
+  border-bottom: 1rem solid global.$coral;
 
   @include global.breakpoint(tablet) {
     max-height: 45rem;
