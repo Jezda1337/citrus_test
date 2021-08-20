@@ -15,7 +15,8 @@
 </template>
 
 <script setup>
-import { defineProps, onUpdated } from "vue";
+import { defineProps } from "vue";
+// onUpdated
 import { useStore } from "vuex";
 const props = defineProps({
   users: Array,
@@ -24,9 +25,9 @@ const props = defineProps({
 
 const store = useStore();
 
-onUpdated(() => {
-  document.querySelector("#btn").classList.add("user-btn--active");
-});
+// onUpdated(() => {
+//   document.querySelector("#btn").classList.add("user-btn--active");
+// });
 
 const getButtons = (user) => {
   const buttons = document.querySelectorAll("#btn");
@@ -34,7 +35,7 @@ const getButtons = (user) => {
 
   store.commit("changeUserId", user.id);
   store.commit("changeName", {
-    name: user.name,
+    name: `${user.name} 'S TODOS`,
   });
   buttons.forEach((btn) => {
     btn.classList.contains("user-btn--active")

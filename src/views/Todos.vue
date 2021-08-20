@@ -1,10 +1,8 @@
 <template>
-  <section class="todos">
+  <section class="todos" v-show="store.state.name">
     <div class="wrapper">
       <section class="todos__header">
-        <h2 class="todos__user-name">
-          {{ `${userName.toUpperCase()}'S TODOS` }}
-        </h2>
+        <h2 class="todos__user-name">{{ `${userName.toUpperCase()}` }}</h2>
         <section class="todos__filters">
           <button
             :class="{
@@ -13,7 +11,7 @@
             }"
             @click="changeFilter('All')"
           >
-            {{ `All` }}
+            {{ `All ` }}
           </button>
           <button
             :class="{
@@ -22,7 +20,7 @@
             }"
             @click="changeFilter('Completed')"
           >
-            {{ `Completed` }}
+            {{ `Completed ` }}
           </button>
           <button
             :class="{
@@ -31,25 +29,25 @@
             }"
             @click="changeFilter('Uncompleted')"
           >
-            {{ `Uncompleted` }}
+            {{ `Uncompleted ` }}
           </button>
         </section>
       </section>
       <ul class="todos__list">
         <li class="todos__item" v-for="todo in filtersTodos" :key="todo.id">
-          <label class="todos__label" :for="todo.id">
+          <label
+            @click="(e) => e.target.classList.toggle('done')"
+            :class="todo.completed ? 'done todos__label' : 'todos__label'"
+            :for="todo.id"
+          >
             <input
               class="todos__check"
               :checked="todo.completed"
               :id="todo.id"
               type="checkbox"
             />
-            <p
-              :class="
-                todo.completed ? 'done todos__todo-title' : 'todos__todo-title'
-              "
-            >
-              {{ todo.title }} {{ todo.completed }}
+            <p class="todos__todo-title">
+              {{ todo.title }}
             </p>
           </label>
         </li>
@@ -66,13 +64,11 @@ const store = useStore();
 const url = "https://jsonplaceholder.typicode.com/todos";
 const state = computed(() => store.state.userId);
 const todoList = ref([]);
-
 const userName = computed(() => store.state.name);
 
 const filter = ref("All");
 const changeFilter = (status) => {
   filter.value = status;
-  console.log(filtersTodos.value.length);
 };
 
 const filtersTodos = computed(() => {
@@ -100,11 +96,6 @@ const getData = async () => {
 getData().then((data) => todoList.value.push(data));
 
 const todos = computed(() => {
-  const newTodoList = todoList.value[0]?.filter(
-    (x) => state.value === x.userId
-  );
-  return newTodoList;
+  return todoList.value[0]?.filter((x) => state.value === x.userId);
 });
-
-console.log(filtersTodos.value);
 </script>

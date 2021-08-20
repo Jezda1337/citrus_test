@@ -2,8 +2,8 @@ import { createStore } from "vuex";
 
 export default createStore({
   state: {
-    userId: 1,
-    name: "Leanne",
+    userId: 0,
+    name: "",
   },
   mutations: {
     changeUserId: (state, payload) => {
