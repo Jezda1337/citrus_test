@@ -1,0 +1,17 @@
+@use 'global';
+@use 'components';
+
+.wrapper {
+  padding: 3rem 1rem 0;
+  max-width: 160rem;
+  width: 100%;
+  margin: 0 auto;
+
+  @include global.breakpoint(tablet) {
+    padding: 3rem 14rem;
+  }
+
+  @include global.breakpoint(desktop) {
+    padding: 8rem 16rem;
+  }
+}

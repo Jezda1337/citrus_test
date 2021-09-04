@@ -1,0 +1,36 @@
+@use '../global';
+
+.filters {
+  display: flex;
+  margin-top: 1.5rem;
+
+  @include global.breakpoint(desktop) {
+    margin-top: 0;
+  }
+  &__button {
+    min-width: 9.5rem;
+    width: 100%;
+    min-height: 3.5rem;
+    height: 100%;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border-radius: 2rem;
+    border: 1px solid #c7c8ca;
+
+    &:nth-child(2) {
+      margin: 0 0.7rem 0 0.8rem;
+    }
+
+    &--active {
+      background-color: global.$mainColor;
+      border: 1px solid global.$mainColor;
+    }
+
+    @include global.breakpoint(desktop) {
+      font-size: 1.8rem;
+      min-width: 20rem;
+      min-height: 5rem;
+      border-radius: 3rem;
+    }
+  }
+}
